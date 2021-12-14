@@ -4,8 +4,11 @@
   "main": "index.js",
   "author": "flavio manzotti <manzottiflavio22@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
   "dependencies": {
-    "espress": "^0.0.0"
+    "express": "^4.17.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
