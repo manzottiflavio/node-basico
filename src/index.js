@@ -1,21 +1,27 @@
 const express = require("express");
 const app = express();
-app.listen(9191);
-app.use=(express.json());
+
+app.use(express.json());
 
 
 
 
 app.get("/aula", (request, response)=>{
-    return response.json({menssagem:"ola"})/*sempre lembrar de colocar em chave{} ou couchetes[]*/
+const query=request.query/*filtro e paginaçao*/
+console.log(query)
+return response.json({menssagem:"ola"})/*sempre lembrar de colocar em chave{} ou couchetes[]*/
 })
 
 app.post("/aula", (request,response)=>{
+    const body=request.body/*objetos ,inserção,alteração sempre em json*/
+    console.log(body)
     return response.json(["aula1", "aula2"])
 });
 
 app.put("/aula/:id",(request, response)=>{
-    return response.json(["aula1", "aula2","aula3"])
+const params= request.params/* busca , editar e deleter*/
+console.log(params)
+return response.json(["aula1", "aula2","aula3"])
 });
 
 app.patch("/aula/:id", (request, response)=>{
@@ -25,3 +31,5 @@ app.patch("/aula/:id", (request, response)=>{
 app.delete("/aula/:id", (request, response)=>{
     return response.json(["aula1","aula2"])
 })
+
+app.listen(9191);
